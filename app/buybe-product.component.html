@@ -1,0 +1,66 @@
+<header class="head_banner">
+     <i class="icon_back" style="" onclick="history.go(-1);"><em></em></i>
+     <i id="icon_nav" onclick=""><em></em><b></b></i>
+     精选单品 
+    <!--nav-->
+	<nav id="nav">
+		<h3>频道</h3>
+		<ul class="list_channel">
+            <li><a href="">专题</a></li>
+			<li><a href="">评测</a></li>
+		</ul>
+		<h3>分类筛选</h3>
+		<ul *ngFor="let navItem of navLists">
+			<li><a>{{navItem.name}}</a></li>
+		</ul>
+	</nav>
+	<!--nav end-->
+    
+</header>
+
+<div id="mirrors"></div>
+<div id="slider" class="owl-carousel">
+    
+    <div #sketchElement *ngFor="let slideItem of sliders">
+        <img src="{{slideItem.url}}">
+    </div>
+</div>
+
+
+<div class="details-title">
+    <div class="title">{{title}}<span class="red">{{price}}元</span> </div>
+    <a href="" target="_blank" onclick="gtm();" class="go-buy-btn">生成链接</a>
+
+</div>
+
+<article>
+    
+
+
+    <h2 class="title-box">优惠力度</h2>
+    <p>一瓶5.7元~</p>
+    <p>
+        <a href="" target="_blank" onclick="gtm();">天猫</a>
+        今日聚划算报价69元，全国大部分地区免运费，2016年3月~5月31日产，划算可入~<br>
+    </p>
+    
+    <blockquote class="baoliao">
+       <em class="title"> 值友爆料原文：</em>
+       <p>超市里面卖这个啤酒一瓶12元。看活动卖69元12瓶，折下大概5.7元。很划算，值友可以购一购</p>
+    </blockquote>
+    
+    <h2 class="title-box">商品详情</h2>
+    <!-- card-wrap -->
+    <div class="card-wrap wiki-card">
+        <!-- <div class="card-info">
+            <p>Heineken喜力始建于荷兰阿姆斯特丹，是大家比较熟悉的国外啤酒品牌，而市面上能买到的大多为国产。此款为荷兰原瓶进口，生啤，麦芽度11.2P，酒精度5%vol。</p>
+        </div> -->
+       <div *ngFor="let descItem of desc">
+           <div  [innerHTML] = "descItem.content | escapeHtml"></div> 
+        </div> 
+      
+    </div>
+    <!-- card-wrap end-->
+    
+
+</article>

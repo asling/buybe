@@ -1,0 +1,61 @@
+<header class="head_banner">
+   <h1 id="logo">什么值得买</h1>
+   <i id="icon_nav" onclick=""><em></em><b></b></i>
+                <!--nav-->
+	<nav id="nav">
+		<h3>频道</h3>
+		<ul class="list_channel">
+            <li><a href="">专题</a></li>
+			<li><a href="">评测</a></li>
+		</ul>
+		<h3>分类筛选</h3>
+		<ul *ngFor="let navItem of navLists">
+			<li><a>{{navItem.name}}</a></li>
+		</ul>
+	</nav>
+	<!--nav end-->
+    
+</header>
+
+<div class="slide-wrap">
+    <div id="slideBox" class="slideBox">
+        <div class="bd">
+            <div class="tempWrap" style="overflow:hidden; position:relative;">
+				<ul >
+					<li style="display: table-cell; vertical-align: top; width: 414px;">
+						<a class="pic" ><img src="http://eimg.smzdm.com/201608/05/57a3e4e268fa3819.png" alt="海淘活动： SHOPBOP 季末特惠    知名大牌低至3折，好价持续更新"></a>
+					</li>
+				</ul>
+			</div>
+        </div>
+        <div class="hd">
+            <ul>
+				<li class="">{{i+1}}</li>
+			</ul>
+        </div>
+    </div>
+</div>
+<ul  class="list list_preferential" >
+	
+	<!-- .atb_item_details.aitaobao_item_detail *ngFor = "let slideItem of slideLists"   *ngFor = "let slideItem of slideLists; let i=index" -->
+         <li *ngFor="let speicalItem of speciaLists">
+			
+            <a routerLink='/product/{{speicalItem.item.open_iid}}' routerLinkActive="active" class="openApp">
+			<div class="image_wrap">
+				<div class="image"><img src="{{speicalItem.item.pic_url}}" alt=""></div>
+			</div>
+        	<h2>{{speicalItem.item.title}}</h2>
+			<div class="tips"><em>{{speicalItem.item.price}}</em></div>
+			</a>
+    	</li> 
+</ul>
+
+<div *ngIf="specialPageSize >= maxPageSize" class="btn_getmore" (click)="load(specialPageNum+1)"><a>加载更多</a></div>
+<!--<div *ngIf="speciaLists.error" class="btn_getmore"><a>加载完成</a></div>-->
+	
+	<!-- <input #term (keyup) = "search(term.value)">
+	<ul>
+      <li *ngFor="let item of items | async">{{item}}</li>
+    </ul> -->
+    <div style="display: none;" class="btn_getmore">加载中</div>
+   
